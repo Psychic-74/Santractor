@@ -1,0 +1,60 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context="com.nick.santractor.AboutFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/logoView"
+                android:src="@drawable/app_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="95dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/appTitileView"
+                android:textColor="#ffee"
+                android:textSize="20sp"
+                android:layout_below="@+id/logoView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:text="Placeholder to be replaced"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/appTitileView"
+                android:layout_marginStart="10dp"
+                android:id="@+id/aboutApp"
+                android:textColor="#ffee"
+                android:textSize="15sp"
+                android:gravity="start"
+                android:text="@string/app_about"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aboutApp"
+                android:layout_marginTop="30dp"
+                android:textColor="#ffee"
+                android:textSize="8sp"
+                android:layout_centerHorizontal="true"
+                android:text="&#169; Nick. All rights reserved."/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

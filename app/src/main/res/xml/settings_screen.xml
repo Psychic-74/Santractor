@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Preference to add themes -->
+    <ListPreference
+        android:key="selected_theme"
+        android:entries="@array/theme_array"
+        android:entryValues="@array/theme_array"
+        android:defaultValue="Black"
+        android:title="Select app theme"
+        android:enabled="true"
+        android:summary="Choose an accent for the app">
+    </ListPreference>
+
+
+    <ListPreference
+        android:entries="@array/save_location"
+        android:entryValues="@array/save_location"
+        android:defaultValue="Music"
+        android:title="Save directory"
+        android:key="save_loc"
+        android:summary="Select SDCARD output directory">
+    </ListPreference>
+
+    <SwitchPreference
+        android:title="Use Chrome Custom Tabs"
+        android:defaultValue="true"
+        android:key="custom_tabs"
+        android:summary="Use chrome custom tabs for links">
+    </SwitchPreference>
+
+</PreferenceScreen>

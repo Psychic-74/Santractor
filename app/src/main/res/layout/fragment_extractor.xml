@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context="com.nick.santractor.ExtractorFragment">
+
+    <!-- Create a EditText -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/songNameText"
+        android:gravity="center"
+        android:background="#ffee"
+        android:layout_marginTop="100dp"
+        android:hint="Enter the name of the downloaded song"
+        android:inputType="textCapWords"
+        />
+
+    <!-- Create a button -->
+    <Button
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:id="@+id/saveButton"
+        android:text="Save Song"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="200dp"/>
+
+    <Button
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:id="@+id/resetButton"
+        android:layout_below="@+id/saveButton"
+        android:text="Reset Me"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
