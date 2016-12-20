@@ -27,5 +27,5 @@
     </string-array>
 
     <!-- Changelog -->
-    <string name="changelog">\n- Changed background color to white.\n\n - Show changelogs with option to dismiss.</string>
+    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.</string>
 </resources>
