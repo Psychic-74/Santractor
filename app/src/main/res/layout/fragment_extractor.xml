@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/songNameText"
         android:gravity="center"
-        android:background="#ffee"
+        android:background="@color/colorPrimaryLight"
         android:layout_marginTop="100dp"
         android:hint="Enter the name of the downloaded song"
         android:inputType="textCapWords"

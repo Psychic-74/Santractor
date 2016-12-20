@@ -25,7 +25,7 @@
         android:layout_marginBottom="10dp"
         android:textSize="20sp"
         android:text="Welcome to Saavn song Extractor by Nick. In order to save songs from this app you need to :-"
-        android:textColor="#ffee"
+        android:textColor="@color/colorPrimaryLight"
         android:textStyle="bold"/>
 
 
@@ -48,7 +48,7 @@
                 android:layout_marginStart="10dp"
                 android:textSize="18sp"
                 android:text="@string/instructions"
-                android:textColor="#ffee"
+                android:textColor="@color/colorPrimaryLight"
                 android:textStyle="bold"
                 />
 

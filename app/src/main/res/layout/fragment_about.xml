@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/appTitileView"
-                android:textColor="#ffee"
+                android:textColor="@color/colorPrimaryLight"
                 android:textSize="20sp"
                 android:layout_below="@+id/logoView"
                 android:layout_centerHorizontal="true"
@@ -38,7 +38,7 @@
                 android:layout_below="@+id/appTitileView"
                 android:layout_marginStart="10dp"
                 android:id="@+id/aboutApp"
-                android:textColor="#ffee"
+                android:textColor="@color/colorPrimaryLight"
                 android:textSize="15sp"
                 android:gravity="start"
                 android:text="@string/app_about"/>
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/aboutApp"
                 android:layout_marginTop="30dp"
-                android:textColor="#ffee"
+                android:textColor="@color/colorPrimaryLight"
                 android:textSize="8sp"
                 android:layout_centerHorizontal="true"
                 android:text="&#169; Nick. All rights reserved."/>
