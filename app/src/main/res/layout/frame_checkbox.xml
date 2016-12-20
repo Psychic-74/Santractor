@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:padding="10dp"
+    android:layout_height="fill_parent">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbDont"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:text="Don\'t show this again"/>
+
+</FrameLayout>

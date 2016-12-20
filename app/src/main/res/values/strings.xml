@@ -15,6 +15,7 @@
         <item>Songs</item>
         <item>Santractor</item>
     </string-array>
+
     <!-- Theme Styles -->
     <string-array name="theme_array">
         <item>Black</item>
@@ -24,4 +25,7 @@
         <item>Blue</item>
         <item>Pink</item>
     </string-array>
+
+    <!-- Changelog -->
+    <string name="changelog">\n- Changed background color to white.\n\n - Show changelogs with option to dismiss.</string>
 </resources>
