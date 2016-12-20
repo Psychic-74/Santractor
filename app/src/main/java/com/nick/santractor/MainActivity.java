@@ -264,6 +264,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else{
             // Press back again to exit
             if (canExit){
+                System.exit(0);
                 super.onBackPressed();
             }
             else{
