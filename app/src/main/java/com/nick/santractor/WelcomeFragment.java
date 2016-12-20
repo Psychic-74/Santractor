@@ -26,6 +26,7 @@ import android.widget.Toast;
 public class WelcomeFragment extends Fragment {
 Activity mActivity = getActivity();
 static boolean canShowChangelog;
+static boolean shouldShowChangelog = true;
 
     public WelcomeFragment() {
         // Required empty public constructor
@@ -88,10 +89,13 @@ static boolean canShowChangelog;
                 dialogInterface.dismiss();
             }
         });
-        if (canShowChangelog) {
-            AlertDialog change = changeLog.create();
-            change.setCanceledOnTouchOutside(false);
-            change.show();
+        if (shouldShowChangelog) {
+            if (canShowChangelog) {
+                AlertDialog change = changeLog.create();
+                change.setCanceledOnTouchOutside(false);
+                change.show();
+                shouldShowChangelog = false;
+            }
         }
         return mView;
     }
