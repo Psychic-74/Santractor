@@ -10,7 +10,7 @@
         android:defaultValue="Black"
         android:title="Select app theme"
         android:enabled="true"
-        android:summary="Choose an accent for the app">
+        android:summary="Current selection is: %s">
     </ListPreference>
 
 
@@ -20,7 +20,7 @@
         android:defaultValue="Music"
         android:title="Save directory"
         android:key="save_loc"
-        android:summary="Select SDCARD output directory">
+        android:summary="Current selection is: %s">
     </ListPreference>
 
     <SwitchPreference
