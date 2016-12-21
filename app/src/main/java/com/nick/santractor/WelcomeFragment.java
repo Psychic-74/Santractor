@@ -73,7 +73,7 @@ static boolean shouldShowChangelog = true;
         View mChangelog = View.inflate(mActivity, R.layout.frame_checkbox, null);
         final CheckBox cbDont = (CheckBox) mChangelog.findViewById(R.id.cbDont);
         changeLog.setView(mChangelog);
-        changeLog.setTitle("Changelog");
+        changeLog.setTitle("Changelog for ver "+BuildConfig.VERSION_NAME);
         changeLog.setMessage(getResources().getString(R.string.changelog));
 
         // Show changelog if app is updated
