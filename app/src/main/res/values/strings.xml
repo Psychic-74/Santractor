@@ -27,5 +27,5 @@
     </string-array>
 
     <!-- Changelog -->
-    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.</string>
+    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.\n\n- Show changelog whenever app is upgraded.</string>
 </resources>
