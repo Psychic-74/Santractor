@@ -7,10 +7,13 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by Nick on 12/16/2016.
@@ -104,12 +107,27 @@ public class SettingsActivity extends PreferenceActivity {
 
     }
 
+    // Inflate menu for the settings activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         switch (i){
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
+                break;
+            case R.id.menu_reset:
+                // Reset the preferences
+                SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                mPref.edit().putString("save_loc", "Music").apply();
+                mPref.edit().putString("selected_theme", "Black").apply();
+                mPref.edit().putBoolean("custom_tabs", true).apply();
+                Toast.makeText(this, "Settings reset to default", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
