@@ -39,7 +39,6 @@ static boolean shouldShowChangelog = true;
     }
 
     View mView;
-    static boolean canShowWelcomeSnackbar=true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -52,11 +51,6 @@ static boolean shouldShowChangelog = true;
         Toolbar toolbar = (Toolbar) mActivity.findViewById(R.id.toolbar);
         toolbar.setTitle("Saavn Song Extractor");
 
-        // Show welcome snackbar only once
-        if (canShowWelcomeSnackbar){
-            Snackbar.make(getActivity().findViewById(android.R.id.content), "Welcome to Saavn Extractor.", Snackbar.LENGTH_SHORT).show();
-            canShowWelcomeSnackbar = false;
-        }
         Button openDrawerButton = (Button) mView.findViewById(R.id.buttonOpenDrawer);
         openDrawerButton.setOnClickListener(new View.OnClickListener() {
             @Override

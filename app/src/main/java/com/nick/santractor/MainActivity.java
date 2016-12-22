@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     boolean shouldShowCustomTabs;
     int colorPrimary;
     int colorPrimaryDark;
+    static boolean canShowWelcomeSnackbar=true;
 
     // Override onRequestPermissionsResult to perform an action when user allows or disallows permission.
     @Override
@@ -191,6 +192,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SpannableString s2 = new SpannableString(comm.getTitle());
         s2.setSpan(new TextAppearanceSpan(this, R.style.customTextStyle), 0, s2.length(), 0);
         comm.setTitle(s2);
+
+        // Show welcome snackbar only once
+        if (canShowWelcomeSnackbar){
+            Snackbar.make(findViewById(android.R.id.content), "Welcome to Saavn Extractor.", Snackbar.LENGTH_SHORT).show();
+            canShowWelcomeSnackbar = false;
+        }
     }
 
 
