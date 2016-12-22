@@ -158,8 +158,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Set home as checked
-        navigationView.setCheckedItem(R.id.nav_home);
+        // Set selected fragment in prefs as checked
+        String navListSeletion = mPref.getString("open_fragment", "Welcome Fragment");
+        switch (navListSeletion) {
+            case "Welcome Fragment":
+                navigationView.setCheckedItem(R.id.nav_home);
+                break;
+            case "Extractor Fragment":
+                navigationView.setCheckedItem(R.id.nav_extract);
+                break;
+            default:
+                break;
+        }
 
         // To change Menu title color (Main)
         Menu menu = navigationView.getMenu();
