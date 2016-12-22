@@ -126,6 +126,7 @@ public class SettingsActivity extends PreferenceActivity {
                 SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                 mPref.edit().putString("save_loc", "Music").apply();
                 mPref.edit().putString("selected_theme", "Black").apply();
+                mPref.edit().putString("open_fragment", "Welcome Fragment").apply();
                 mPref.edit().putBoolean("custom_tabs", true).apply();
                 Toast.makeText(this, "Settings reset to default", Toast.LENGTH_SHORT).show();
                 break;
