@@ -2,6 +2,16 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Preference for fragments -->
+    <ListPreference
+        android:key="open_fragment"
+        android:entries="@array/fragment_array"
+        android:entryValues="@array/fragment_array"
+        android:defaultValue="Welcome Fragment"
+        android:title="Fragment to load on startup"
+        android:summary="Current selection is: %s">
+    </ListPreference>
+
     <!-- Preference to add themes -->
     <ListPreference
         android:key="selected_theme"

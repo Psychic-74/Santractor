@@ -26,6 +26,12 @@
         <item>Pink</item>
     </string-array>
 
+    <!-- Fragments list -->
+    <string-array name="fragment_array">
+        <item>Welcome Fragment</item>
+        <item>Extractor Fragment</item>
+    </string-array>
+
     <!-- Changelog -->
-    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.\n\n- Show changelog whenever app is upgraded.\n\n- Show current selection in app\'s settings.\n\n- Added option to reset settings.\n\n- Fixed typos in about app section.</string>
+    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.\n\n- Show changelog whenever app is upgraded.\n\n- Show current selection in app\'s settings.\n\n- Added option to reset settings.\n\n- Fixed typos in about app section.\n\n- Option to select startup screen</string>
 </resources>

@@ -121,11 +121,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             utils.requestPermission(MainActivity.this, requestPermissionCode);
         }
 
-        // Make extractor fragment load as soon as the app launches.
-        WelcomeFragment fragment = new WelcomeFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
+        // Load fragment by reading preferences
+        String fragmentToOpen = mPref.getString("open_fragment", "Welcome Fragment");
+        switch (fragmentToOpen){
+            case "Welcome Fragment":
+                WelcomeFragment fragment = new WelcomeFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .commit();
+                break;
+            case "Extractor Fragment":
+                ExtractorFragment extractorFragment = new ExtractorFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, extractorFragment)
+                        .commit();
+                break;
+            default:
+                // Nothing because we are already returning "Welcome Fragment" as fallback value
+                // That will fall back to "case: Welcome Fragment" and hence will load Welcome Fragment
+                break;
+        }
+
 
         // Set toolbar, it also sets the title of the app in the top header
         toolbar = (Toolbar) findViewById(R.id.toolbar);
