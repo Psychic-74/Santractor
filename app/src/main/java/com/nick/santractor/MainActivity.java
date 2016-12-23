@@ -1,8 +1,11 @@
 package com.nick.santractor;
 
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -15,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int colorPrimary;
     int colorPrimaryDark;
     static boolean canShowWelcomeSnackbar=true;
+    static String song;
 
     // Override onRequestPermissionsResult to perform an action when user allows or disallows permission.
     @Override
@@ -106,6 +111,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Start service in case someone killed it :P
+        Intent intent=new Intent(getBaseContext(), NotificationListener.class);
+        getBaseContext().startService(intent);
+
+        // Check notification access
+        if (utils.checkNotificationAccess(getBaseContext())){
+            // Continue
+            Log.i("santractor", "Notification Access is Enabled");
+        }
+        else {
+            // Take a note
+            Log.e("santractor", "Notification Access is Disabled");
+            // Ask user to enable access
+            Toast.makeText(getBaseContext(), "Enable notification access from\n\nApp Settings > Read Notifications", Toast.LENGTH_LONG).show();
+        }
+
+        // Register Broadcast receiver
+        LocalBroadcastManager.getInstance(getBaseContext()).registerReceiver(onNotify, new IntentFilter("sendMsg"));
 
         // Get theme colors
         getColors();
@@ -336,6 +360,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.action_settings:
                 startActivity(new Intent(getBaseContext(), SettingsActivity.class));
                 break;
+            case R.id.action_notification:
+                // Check if permission is already granted
+                if (utils.checkNotificationAccess(getBaseContext())){
+                    Toast.makeText(getBaseContext(), "No need. Permission is allowed", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent enableIntent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+                    startActivity(enableIntent);
+                }
             default:
                 break;
         }
@@ -367,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(profileIntent);
         }
 
-    }
+   }
 
     public void getColors(){
         TypedValue typedValue = new TypedValue();
@@ -377,5 +410,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getTheme().resolveAttribute(R.attr.colorPrimary, typedValue1, true);
         colorPrimaryDark = typedValue1.data;
     }
+
+    private BroadcastReceiver onNotify = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            song = intent.getStringExtra("appTitle");
+        }
+    };
 
 }

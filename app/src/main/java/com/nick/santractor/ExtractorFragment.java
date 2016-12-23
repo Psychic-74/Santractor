@@ -52,6 +52,7 @@ public class ExtractorFragment extends Fragment {
     String songName =null;
     String songsDir =null;
     File outputSong = null;
+    MainActivity mc = new MainActivity();
 
     // File downloaded song should be accessible globally
     File songToSave = null;
@@ -97,6 +98,8 @@ public class ExtractorFragment extends Fragment {
             if (downloadedSong.exists()){
                 // Take a note
                 Log.i("santractor", "Downloaded song found");
+                EditText songNameText = (EditText) mView.findViewById(R.id.songNameText);
+                songNameText.setText(mc.song);
             }
             else{
                 // Moron, go and download the song.
@@ -165,6 +168,8 @@ public class ExtractorFragment extends Fragment {
 
                 // Now we will get the value from text field for song name
                 EditText songNameText = (EditText) mView.findViewById(R.id.songNameText);
+                String song = mc.song;
+                songNameText.setText(song);
                 songName = songNameText.getText().toString();
 
                 // If song name is null then tell user else create a new file for songame.

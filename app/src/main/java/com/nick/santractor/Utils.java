@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -114,5 +115,22 @@ public class Utils extends AppCompatActivity{
             Log.e("santractor", e.getMessage());
             isSongSaved = false;
         }
+    }
+
+    // Method to check if notification access service is enabled or not
+    public static boolean checkNotificationAccess(Context context) {
+        try{
+            if(Settings.Secure.getString(context.getContentResolver(),
+                    "enabled_notification_listeners").contains(context.getPackageName()))
+            {
+                return true;
+            } else {
+                return false;
+            }
+
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
