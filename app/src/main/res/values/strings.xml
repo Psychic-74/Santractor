@@ -33,5 +33,5 @@
     </string-array>
 
     <!-- Changelog -->
-    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.\n\n- Show changelog whenever app is upgraded.\n\n- Show current selection in app\'s settings.\n\n- Added option to reset settings.\n\n- Fixed typos in about app section.\n\n- Option to select startup screen.\n\n- Sync NavList selection with selected pref.\n\n- Move welcome message to activity.\n\n- Automatically fetch song name from notification</string>
+    <string name="changelog">\n- Changed background color to white.\n\n- Show changelog with option to disable it.\n\n- Show changelog whenever app is upgraded.\n\n- Show current selection in app\'s settings.\n\n- Added option to reset settings.\n\n- Fixed typos in about app section.\n\n- Option to select startup screen.\n\n- Sync NavList selection with selected pref.\n\n- Move welcome message to activity.\n\n- Automatically fetch song name from notification.\n\n- Fix error where song name always returned null if program was unable to fetch the song name.</string>
 </resources>
