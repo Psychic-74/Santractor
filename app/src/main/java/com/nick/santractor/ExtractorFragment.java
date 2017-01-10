@@ -160,6 +160,11 @@ public class ExtractorFragment extends Fragment {
             storeDialog.show();
         }
 
+        // Fix a issue where song name returned null if notification value was null.
+        EditText songNameText = (EditText) mView.findViewById(R.id.songNameText);
+        String song = mc.song;
+        songNameText.setText(song);
+
         // Add action to Save Button
         Button saveButton = (Button) mView.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -168,8 +173,6 @@ public class ExtractorFragment extends Fragment {
 
                 // Now we will get the value from text field for song name
                 EditText songNameText = (EditText) mView.findViewById(R.id.songNameText);
-                String song = mc.song;
-                songNameText.setText(song);
                 songName = songNameText.getText().toString();
 
                 // If song name is null then tell user else create a new file for songame.
