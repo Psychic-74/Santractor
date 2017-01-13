@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'nickskey'
             keyPassword 'RmKey74Sch'
-            storeFile file('C:/Users/Nick/AndroidStudioProjects/NicksKey.jks')
+            storeFile file('/users/nick/AndroidStudioProjects/NicksKey.jks')
             storePassword 'RmKey74Sch'
         }
     }
