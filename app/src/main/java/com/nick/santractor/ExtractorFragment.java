@@ -215,6 +215,11 @@ public class ExtractorFragment extends Fragment {
 
                         // Notify Media Storage of the new file.
                         mUtils.notifyMediaStorage(mActivity, outputSong);
+
+                        // Reset text field
+                        EditText resetText = (EditText) mView.findViewById(R.id.songNameText);
+                        resetText.setText(null);
+                        resetText.requestFocus();
                     }
                     else {
                         // Take a note
