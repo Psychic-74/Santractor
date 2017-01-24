@@ -244,6 +244,7 @@ public class ExtractorFragment extends Fragment {
                         .commit();
                 EditText et = (EditText) mView.findViewById(R.id.songNameText);
                 et.setText(null);
+                et.requestFocus();
             }
         });
 
