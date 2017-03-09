@@ -269,11 +269,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share link", pendingUpdateIntent)
                             .build();
-                    intent.launchUrl(getBaseContext(), Uri.parse("http://files.centi.ml/public/santractor"));
+                    intent.launchUrl(getBaseContext(), Uri.parse("https://j2java.net"));
                 }
                 else{
                     Intent updateIntent = new Intent(Intent.ACTION_VIEW);
-                    updateIntent.setData(Uri.parse("http://files.centi.ml/public/santractor"));
+                    updateIntent.setData(Uri.parse("https://j2java.net"));
                     updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(updateIntent);
                 }
