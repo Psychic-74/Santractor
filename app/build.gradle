@@ -15,8 +15,8 @@ android {
         applicationId "com.nick.santractor"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 16
-        versionName "1.6-stable"
+        versionCode 17
+        versionName "1.7-stable"
         project.ext.set("archivesBaseName", "Santractor - " + versionName);
         signingConfig signingConfigs.config
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
