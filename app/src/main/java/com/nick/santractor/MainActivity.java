@@ -138,6 +138,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(this);
         shouldShowCustomTabs = mPref.getBoolean("custom_tabs", true);
 
+        // If chrome is not installed, then set custom tabs to false
+        if (!utils.isAppInstalled(getBaseContext(), "com.android.chrome")){
+            shouldShowCustomTabs = false;
+        }
+
         // Request Permissions
         if (utils.isPermissionGranted(getBaseContext())){
             Log.v("santractor", "Permission acquired.");
