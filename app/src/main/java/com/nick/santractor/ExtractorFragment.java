@@ -24,6 +24,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -201,6 +203,16 @@ public class ExtractorFragment extends Fragment {
                         Log.e("santractor", "Destination directory not found");
                         saveDir.mkdirs();
                         Log.i("santractor", "Destination directory created as "+saveDir);
+                    }
+
+                    // We will check if the filename exists. If it does, we will rename it by appending random string values.
+                    if (outputSong.exists()){
+                        // Rename
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(new Date());
+                        int mins = cal.get(Calendar.MILLISECOND);
+                        String valToAppend = ""+mins;
+                        outputSong = new File(songsDir+"/"+songName+"_"+valToAppend+"."+songExtension);
                     }
 
                     // Save the song, we'll check return boolean to see if song was saved successfully.
