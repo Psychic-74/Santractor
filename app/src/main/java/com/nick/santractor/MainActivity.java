@@ -307,6 +307,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .replace(R.id.fragment_container, frag)
                         .commit();
                 break;
+            case R.id.nav_changelog:
+                if (shouldShowCustomTabs) {
+                    Intent shareSourceIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
+                    PendingIntent pendingSourceIntent = PendingIntent.getBroadcast(getBaseContext(), 74, shareSourceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
+                            .setToolbarColor(colorPrimary)
+                            .setSecondaryToolbarColor(colorPrimaryDark)
+                            .addMenuItem("Share source code", pendingSourceIntent)
+                            .build();
+                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/black-dragon74/Santractor/commits/master"));
+                }
+                else{
+                    Intent shareSourceIntent = new Intent(Intent.ACTION_VIEW);
+                    shareSourceIntent.setData(Uri.parse("https://github.com/black-dragon74/Santractor/commits/master"));
+                    shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(shareSourceIntent);
+                }
             default:
                 break;
         }
