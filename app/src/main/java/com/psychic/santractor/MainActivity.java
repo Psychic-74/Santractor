@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // If chrome is not installed, then set custom tabs to false
         if (!utils.isAppInstalled(getBaseContext(), "com.android.chrome")){
             shouldShowCustomTabs = false;
+            mPref.edit().putBoolean("custom_tabs", false).apply();
         }
 
         // Request Permissions
