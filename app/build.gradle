@@ -15,8 +15,8 @@ android {
         applicationId "com.psychic.santractor"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 18
-        versionName "1.8-stable"
+        versionCode 19
+        versionName "1.9-stable"
         project.ext.set("archivesBaseName", "Santractor - " + versionName);
         signingConfig signingConfigs.config
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
