@@ -24,8 +24,6 @@ import android.widget.Toast;
  */
 public class WelcomeFragment extends Fragment {
 Activity mActivity = getActivity();
-static boolean canShowChangelog;
-static boolean shouldShowChangelog = true;
 
     public WelcomeFragment() {
         // Required empty public constructor
@@ -60,51 +58,6 @@ static boolean shouldShowChangelog = true;
             }
         });
 
-        // Show changelog
-        canShowChangelog =  mPref.getBoolean("show_changelog", true);
-        AlertDialog.Builder changeLog = new AlertDialog.Builder(mActivity);
-        View mChangelog = View.inflate(mActivity, R.layout.frame_checkbox, null);
-        final CheckBox cbDont = (CheckBox) mChangelog.findViewById(R.id.cbDont);
-        changeLog.setView(mChangelog);
-        changeLog.setTitle("Changelog for ver "+BuildConfig.VERSION_NAME);
-        changeLog.setMessage(getResources().getString(R.string.changelog));
-
-        // Show changelog if app is updated
-        int versionCheck = mPref.getInt("version_code", BuildConfig.VERSION_CODE);
-        if (versionCheck != BuildConfig.VERSION_CODE){
-            // Now we set canShowChangelog to true only if it is false
-            if (!canShowChangelog){
-                canShowChangelog = true;
-                // Set checkbox to true state in order to retain the canShowChangelog value
-                CheckBox cb = (CheckBox) mChangelog.findViewById(R.id.cbDont);
-                cb.setChecked(true);
-            }
-        }
-        // Then we will tell Shared prefs that app is updated by writing the new version code
-        mPref.edit().putInt("version_code", BuildConfig.VERSION_CODE).apply();
-
-        changeLog.setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                boolean res;
-                if (cbDont.isChecked()){
-                    res = false;
-                }
-                else{
-                    res = true;
-                }
-                mPref.edit().putBoolean("show_changelog", res).apply();
-                dialogInterface.dismiss();
-            }
-        });
-        if (shouldShowChangelog) {
-            if (canShowChangelog) {
-                AlertDialog change = changeLog.create();
-                change.setCanceledOnTouchOutside(false);
-                change.show();
-                shouldShowChangelog = false;
-            }
-        }
         return mView;
     }
 
