@@ -67,7 +67,7 @@ static boolean shouldShowChangelog = true;
         // Show changelog
         canShowChangelog =  mPref.getBoolean("show_changelog", true);
         MaterialDialog.Builder changeLog = new MaterialDialog.Builder(mActivity);
-        changeLog.title("Changelog for ver "+BuildConfig.VERSION_NAME);
+        changeLog.title("Changelogs for "+getResources().getString(R.string.app_name));
         changeLog.content(getResources().getString(R.string.changelog));
 
         // Show changelog if app is updated
