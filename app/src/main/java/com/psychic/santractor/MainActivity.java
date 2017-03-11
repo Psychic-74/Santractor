@@ -1,4 +1,4 @@
-package com.nick.santractor;
+package com.psychic.santractor;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -292,11 +292,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share source code", pendingSourceIntent)
                             .build();
-                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/black-dragon74/Santractor"));
+                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor"));
                 }
                 else{
                     Intent shareSourceIntent = new Intent(Intent.ACTION_VIEW);
-                    shareSourceIntent.setData(Uri.parse("https://github.com/black-dragon74/Santractor"));
+                    shareSourceIntent.setData(Uri.parse("https://github.com/Psychic-74/Santractor"));
                     shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(shareSourceIntent);
                 }
@@ -316,11 +316,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share source code", pendingSourceIntent)
                             .build();
-                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/black-dragon74/Santractor/commits/master"));
+                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor/commits/master"));
                 }
                 else{
                     Intent shareSourceIntent = new Intent(Intent.ACTION_VIEW);
-                    shareSourceIntent.setData(Uri.parse("https://github.com/black-dragon74/Santractor/commits/master"));
+                    shareSourceIntent.setData(Uri.parse("hhttps://github.com/Psychic-74/Santractor/commits/master"));
                     shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(shareSourceIntent);
                 }
@@ -413,11 +413,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setSecondaryToolbarColor(colorPrimaryDark)
                     .addMenuItem("Share Url", pendingProfileIntent)
                     .build();
-            profileIntent.launchUrl(getBaseContext(),Uri.parse("https://github.com/black-dragon74"));
+            profileIntent.launchUrl(getBaseContext(),Uri.parse("https://github.com/Psychic-74"));
         }
         else{
             Intent profileIntent = new Intent(Intent.ACTION_VIEW);
-            profileIntent.setData(Uri.parse("https://github.com/black-dragon74"));
+            profileIntent.setData(Uri.parse("https://github.com/Psychic-74"));
             profileIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(profileIntent);
         }

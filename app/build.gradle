@@ -12,11 +12,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.nick.santractor"
+        applicationId "com.psychic.santractor"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 17
-        versionName "1.7-stable"
+        versionCode 18
+        versionName "1.8-stable"
         project.ext.set("archivesBaseName", "Santractor - " + versionName);
         signingConfig signingConfigs.config
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

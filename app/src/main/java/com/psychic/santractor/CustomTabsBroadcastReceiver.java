@@ -1,4 +1,4 @@
-package com.nick.santractor;
+package com.psychic.santractor;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
