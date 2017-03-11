@@ -428,7 +428,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         colorPrimary = typedValue.data;
         TypedValue typedValue1 = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue1, true);
+        getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue1, true);
         colorPrimaryDark = typedValue1.data;
     }
 
