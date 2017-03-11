@@ -314,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
                             .setToolbarColor(colorPrimary)
                             .setSecondaryToolbarColor(colorPrimaryDark)
-                            .addMenuItem("Share source code", pendingSourceIntent)
+                            .addMenuItem("Share Changelog", pendingSourceIntent)
                             .build();
                     sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor/commits/master"));
                 }
