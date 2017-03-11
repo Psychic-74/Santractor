@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else{
                     Intent shareSourceIntent = new Intent(Intent.ACTION_VIEW);
-                    shareSourceIntent.setData(Uri.parse("hhttps://github.com/Psychic-74/Santractor/commits/master"));
+                    shareSourceIntent.setData(Uri.parse("https://github.com/Psychic-74/Santractor/commits/master"));
                     shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(shareSourceIntent);
                 }
