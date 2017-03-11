@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 
 
 /**
@@ -62,12 +66,9 @@ static boolean shouldShowChangelog = true;
 
         // Show changelog
         canShowChangelog =  mPref.getBoolean("show_changelog", true);
-        AlertDialog.Builder changeLog = new AlertDialog.Builder(mActivity);
-        View mChangelog = View.inflate(mActivity, R.layout.frame_checkbox, null);
-        final CheckBox cbDont = (CheckBox) mChangelog.findViewById(R.id.cbDont);
-        changeLog.setView(mChangelog);
-        changeLog.setTitle("Changelog for ver "+BuildConfig.VERSION_NAME);
-        changeLog.setMessage(getResources().getString(R.string.changelog));
+        MaterialDialog.Builder changeLog = new MaterialDialog.Builder(mActivity);
+        changeLog.title("Changelog for ver "+BuildConfig.VERSION_NAME);
+        changeLog.content(getResources().getString(R.string.changelog));
 
         // Show changelog if app is updated
         int versionCheck = mPref.getInt("version_code", BuildConfig.VERSION_CODE);
@@ -75,31 +76,28 @@ static boolean shouldShowChangelog = true;
             // Now we set canShowChangelog to true only if it is false
             if (!canShowChangelog){
                 canShowChangelog = true;
-                // Set checkbox to true state in order to retain the canShowChangelog value
-                CheckBox cb = (CheckBox) mChangelog.findViewById(R.id.cbDont);
-                cb.setChecked(true);
             }
         }
         // Then we will tell Shared prefs that app is updated by writing the new version code
         mPref.edit().putInt("version_code", BuildConfig.VERSION_CODE).apply();
 
-        changeLog.setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+        changeLog.positiveText("Dismiss");
+        changeLog.onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                boolean res;
-                if (cbDont.isChecked()){
-                    res = false;
-                }
-                else{
-                    res = true;
-                }
-                mPref.edit().putBoolean("show_changelog", res).apply();
-                dialogInterface.dismiss();
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                mPref.edit().putBoolean("show_changelog", false).apply();
             }
         });
+        changeLog.dismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                mPref.edit().putBoolean("show_changelog", false).apply();
+            }
+        });
+
         if (shouldShowChangelog) {
             if (canShowChangelog) {
-                AlertDialog change = changeLog.create();
+                MaterialDialog change = changeLog.build();
                 change.setCanceledOnTouchOutside(false);
                 change.show();
                 shouldShowChangelog = false;
