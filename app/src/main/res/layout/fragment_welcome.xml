@@ -1,67 +1,60 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
     tools:context="com.psychic.santractor.WelcomeFragment">
 
-    <!-- ImageView for our banner -->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageBanner"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/saavn_logo"
-        android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true"/>
-
-    <!-- Create a text view -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageBanner"
-        android:id="@+id/textViewHeader"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:text="Welcome to Saavn song Extractor by Nick. In order to save songs from this app you need to :-"
-        android:textColor="@color/colorPrimaryLight"
-        android:textStyle="bold"/>
-
-
-
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_below="@id/textViewHeader"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!-- ImageView for our banner -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageBanner"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/saavn_logo"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"/>
 
-            <!-- Text view containing instructions -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewInstructions"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="18sp"
-                android:text="@string/instructions"
-                android:textColor="@color/colorPrimaryLight"
-                android:textStyle="bold"
-                />
+        <!-- Create a text view -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewHeader"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/imageBanner"
+            android:textSize="20sp"
+            android:text="Welcome to Saavn song Extractor by Nick. In order to save songs from this app you need to :-"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"/>
 
-            <!-- Button to open drawer -->
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_below="@id/textViewInstructions"
-                android:text="Okay, Open Drawer"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/buttonOpenDrawer"
-                android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-    </ScrollView>
+        <!-- Text view containing instructions -->
+        <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/textViewInstructions"
+           android:layout_marginBottom="10dp"
+           android:layout_marginStart="10dp"
+           android:layout_below="@id/textViewHeader"
+           android:textSize="18sp"
+           android:text="@string/instructions"
+           android:textColor="@color/colorPrimaryLight"
+           android:textStyle="bold"
+           />
 
-</RelativeLayout>
+        <!-- Button to open drawer -->
+        <Button
+           android:layout_width="wrap_content"
+           android:layout_height="@dimen/button_height"
+           android:layout_below="@id/textViewInstructions"
+           android:text="Okay, Open Drawer"
+           android:layout_marginBottom="10dp"
+           android:id="@+id/buttonOpenDrawer"
+           android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</ScrollView>
