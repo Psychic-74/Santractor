@@ -51,5 +51,7 @@
         \n\n- \"black.dragon74\" is now \"Psychic.\"
         \n\n- Implement responsive changelog.
         \n\n- Don\'t kill app, to improve performance.
+        \n\n- Custom tabs are now off by default for Android versions prior Nougat.
+        \n\n- Add settings shortcut to Navigation Menu.
     </string>
 </resources>

@@ -334,6 +334,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(shareSourceIntent);
                 }
+                break;
+            case R.id.nav_settings:
+                startActivity(new Intent(getBaseContext(), SettingsActivity.class));
+                break;
             default:
                 break;
         }
