@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -142,6 +143,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!utils.isAppInstalled(getBaseContext(), "com.android.chrome")){
             shouldShowCustomTabs = false;
             mPref.edit().putBoolean("custom_tabs", false).apply();
+        }
+
+        // Disable custom tabs if enabled on Android versions prior to Nougat
+        if (shouldShowCustomTabs){
+            if (Build.VERSION.SDK_INT < 25){
+                shouldShowCustomTabs = false;
+                mPref.edit().putBoolean("custom_tabs", false).apply();
+            }
         }
 
         // Request Permissions
