@@ -422,7 +422,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (utils.checkNotificationAccess(getBaseContext())){
                     // Increment on every click.
                     op++;
-                    Toast.makeText(getBaseContext(), "No need. Permission is allowed"+"\n\n"+"Tap again to open settings anyway", Toast.LENGTH_SHORT).show();
+                    if (op < 2){
+                        Toast.makeText(getBaseContext(), "No need. Permission is allowed"+"\n\n"+"Tap again to open settings anyway", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Intent enableIntent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
