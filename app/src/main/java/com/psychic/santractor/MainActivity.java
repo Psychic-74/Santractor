@@ -408,6 +408,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    static int op = 0;
     // Override onOptionItemsSelected to perform an action when action bar menu item is selected.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -419,11 +420,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.action_notification:
                 // Check if permission is already granted
                 if (utils.checkNotificationAccess(getBaseContext())){
-                    Toast.makeText(getBaseContext(), "No need. Permission is allowed", Toast.LENGTH_SHORT).show();
+                    // Increment on every click.
+                    op++;
+                    Toast.makeText(getBaseContext(), "No need. Permission is allowed"+"\n\n"+"Tap again to open settings anyway", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Intent enableIntent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
                     startActivity(enableIntent);
+                }
+
+                // Start permission activity if user taps twice
+                if (op >= 2){
+                    Intent enableIntent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+                    startActivity(enableIntent);
+                    // Set OP's value to 0
+                    op = 0;
                 }
             default:
                 break;
