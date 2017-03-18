@@ -438,6 +438,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     // Set OP's value to 0
                     op = 0;
                 }
+                break;
             default:
                 break;
         }
