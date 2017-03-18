@@ -53,5 +53,7 @@
         \n\n- Don\'t kill app, to improve performance.
         \n\n- Custom tabs are now off by default for Android versions prior Nougat.
         \n\n- Add settings shortcut to Navigation Menu.
+        \n\n- Request for notification reading using persistent notification.
+        \n\n- Double tap on read notifications menu now opens up settings for the same.
     </string>
 </resources>
