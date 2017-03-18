@@ -1,5 +1,6 @@
 package com.psychic.santractor;
 
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
@@ -126,7 +129,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Take a note
             Log.e("santractor", "Notification Access is Disabled");
             // Ask user to enable access
-            Toast.makeText(getBaseContext(), "Enable notification access from\n\nApp Settings > Read Notifications", Toast.LENGTH_LONG).show();
+            // Create a intent for launching settings
+            Intent mNotificationSet = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+            PendingIntent mSettings = PendingIntent.getActivity(getBaseContext(), 65, mNotificationSet, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            // Create a notification
+            int mNotiID = 3478;
+            NotificationCompat.Builder mNotification = new NotificationCompat.Builder(getBaseContext());
+            mNotification.setSmallIcon(R.drawable.app_logo);
+            mNotification.setAutoCancel(true);
+            Uri nSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            mNotification.setSound(nSound);
+            mNotification.setOngoing(true);
+            mNotification.setContentTitle("Enable notification access");
+            mNotification.setContentText("Tap to enable notification listener.");
+            mNotification.setContentIntent(mSettings);
+
+            // Send notification
+            NotificationManager mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            mgr.notify(mNotiID, mNotification.build());
         }
 
         // Register Broadcast receiver
