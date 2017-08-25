@@ -5,7 +5,8 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="Settings"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_notification"

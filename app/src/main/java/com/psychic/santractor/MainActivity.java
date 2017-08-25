@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.Telephony;
 import android.support.annotation.NonNull;
@@ -390,7 +391,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // Add Handler ro reset back press counter after 2000 millis.
     public Handler mHandler = new Handler(){
-      public void handleMessage(android.os.Message msg){
+      public void handleMessage(Message msg){
         switch (msg.what){
             case 1:
                 canExit = false;
