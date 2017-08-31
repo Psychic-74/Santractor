@@ -1,13 +1,18 @@
 package com.psychic.santractor;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -18,92 +23,46 @@ import android.widget.Toast;
  * Created by Nick on 12/16/2016.
  */
 
-public class SettingsActivity extends PreferenceActivity {
-    // Declare AppCompatDelegate to set content view
-    private AppCompatDelegate mDelegate;
-
-    // Override theme
-    @Override
-    public Resources.Theme getTheme() {
-        Resources.Theme theme = super.getTheme();
-        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String selectedTheme = sPref.getString("selected_theme", "Black");
-        switch (selectedTheme){
-            case "Blue":
-                theme.applyStyle(R.style.BlueTheme, true);
-                break;
-            case "Green":
-                theme.applyStyle(R.style.GreenTheme, true);
-                break;
-            case "Teal":
-                theme.applyStyle(R.style.TealTheme, true);
-                break;
-            case "Pink":
-                theme.applyStyle(R.style.PinkTheme, true);
-                break;
-            case "Red":
-                theme.applyStyle(R.style.RedTheme, true);
-                break;
-            // Black theme will be applied by default according to manifest.
-            default:
-                break;
-        }
-        return theme;
-    }
+public class SettingsActivity extends AppCompatPreferenceActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getDelegate().installViewFactory();
-        getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_settings);
-        setSupportActionBar(toolbar);
-        getDelegate().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ActionBar mBar = getSupportActionBar();
+        mBar.setDisplayHomeAsUpEnabled(true);
+
         addPreferencesFromResource(R.xml.settings_screen);
 
-    }
+        Preference appVer = findPreference("pref_version");
+        appVer.setSummary(BuildConfig.VERSION_NAME);
 
-    private AppCompatDelegate getDelegate() {
-        if (mDelegate == null) {
-            mDelegate = AppCompatDelegate.create(this, null);
-        }
-        return mDelegate;
-    }
+        Preference sourceCode = findPreference("pref_source");
+        sourceCode.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
 
-    private void setSupportActionBar(@Nullable Toolbar toolbar) {
-        getDelegate().setSupportActionBar(toolbar);
-    }
+                SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
+                boolean showCustomTabs = mPref.getBoolean("custom_tabs", true);
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        getDelegate().onPostCreate(savedInstanceState);
-    }
+                if (showCustomTabs){
 
-    @Override
-    public void setContentView(@LayoutRes int layoutResID) {
-        getDelegate().setContentView(layoutResID);
-    }
+                    CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
+                            .build();
+                    sourceIntent.launchUrl(SettingsActivity.this, Uri.parse("https://github.com/Psychic-74/Santractor"));
+                }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        getDelegate().onPostResume();
-    }
+                else {
+                    Intent source = new Intent(Intent.ACTION_VIEW);
+                    source.setData(Uri.parse("https://github.com/Psychic-74/Santractor"));
+                    source.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(source);
+                }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        getDelegate().onStop();
-    }
+                return false;
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        getDelegate().onDestroy();
-
-
+            }
+        });
     }
 
     // Inflate menu for the settings activity

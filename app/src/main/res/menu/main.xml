@@ -6,7 +6,7 @@
         android:orderInCategory="100"
         android:title="Settings"
         android:icon="@drawable/ic_settings"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_notification"

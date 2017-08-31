@@ -2,42 +2,58 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Preference for fragments -->
-    <ListPreference
-        android:key="open_fragment"
-        android:entries="@array/fragment_array"
-        android:entryValues="@array/fragment_array"
-        android:defaultValue="Welcome Fragment"
-        android:title="Fragment to load on startup"
-        android:summary="Current selection is: %s">
-    </ListPreference>
+    <PreferenceCategory android:title="General">
 
-    <!-- Preference to add themes -->
-    <ListPreference
-        android:key="selected_theme"
-        android:entries="@array/theme_array"
-        android:entryValues="@array/theme_array"
-        android:defaultValue="Black"
-        android:title="Select app theme"
-        android:enabled="true"
-        android:summary="Current selection is: %s">
-    </ListPreference>
+        <!-- Preference for fragments -->
+        <ListPreference
+            android:key="open_fragment"
+            android:entries="@array/fragment_array"
+            android:entryValues="@array/fragment_array"
+            android:defaultValue="Welcome Fragment"
+            android:title="Fragment to load on startup"
+            android:summary="Current selection is: %s">
+        </ListPreference>
+
+        <!-- Preference to add themes -->
+        <ListPreference
+            android:key="selected_theme"
+            android:entries="@array/theme_array"
+            android:entryValues="@array/theme_array"
+            android:defaultValue="Black"
+            android:title="Select app theme"
+            android:enabled="true"
+            android:summary="Current selection is: %s">
+        </ListPreference>
 
 
-    <ListPreference
-        android:entries="@array/save_location"
-        android:entryValues="@array/save_location"
-        android:defaultValue="Music"
-        android:title="Save directory"
-        android:key="save_loc"
-        android:summary="Current selection is: %s">
-    </ListPreference>
+        <ListPreference
+            android:entries="@array/save_location"
+            android:entryValues="@array/save_location"
+            android:defaultValue="Music"
+            android:title="Save directory"
+            android:key="save_loc"
+            android:summary="Current selection is: %s">
+        </ListPreference>
 
-    <SwitchPreference
-        android:title="Use Chrome Custom Tabs"
-        android:defaultValue="true"
-        android:key="custom_tabs"
-        android:summary="Use chrome custom tabs for links">
-    </SwitchPreference>
+        <SwitchPreference
+            android:title="Use Chrome Custom Tabs"
+            android:defaultValue="true"
+            android:key="custom_tabs"
+            android:summary="Use chrome custom tabs for links">
+        </SwitchPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference android:title="Developer"
+            android:summary="Nick" />
+
+        <Preference android:title="App Version"
+            android:key="pref_version" />
+
+        <Preference android:title="Source Code"
+            android:key="pref_source"
+            android:summary="Tap to view source code" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
