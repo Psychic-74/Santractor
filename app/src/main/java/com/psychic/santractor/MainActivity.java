@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     final int requestPermissionCode = 356;
     Utils utils = new Utils();
     boolean shouldShowCustomTabs;
-    int colorPrimary;
-    int colorPrimaryDark;
     static boolean canShowWelcomeSnackbar=true;
     static String song;
 
@@ -80,35 +78,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 d.show();
             }
         }
-    }
-
-    // Override theme
-    @Override
-    public Resources.Theme getTheme() {
-        Resources.Theme theme = super.getTheme();
-        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String selectedTheme = sPref.getString("selected_theme", "Black");
-        switch (selectedTheme){
-            case "Blue":
-                theme.applyStyle(R.style.BlueTheme, true);
-                break;
-            case "Green":
-                theme.applyStyle(R.style.GreenTheme, true);
-                break;
-            case "Teal":
-                theme.applyStyle(R.style.TealTheme, true);
-                break;
-            case "Pink":
-                theme.applyStyle(R.style.PinkTheme, true);
-                break;
-            case "Red":
-                theme.applyStyle(R.style.RedTheme, true);
-                break;
-            // Black theme will be applied by default according to manifest.
-            default:
-                break;
-        }
-        return theme;
     }
 
     // Override onCreate
@@ -154,8 +123,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Register Broadcast receiver
         LocalBroadcastManager.getInstance(getBaseContext()).registerReceiver(onNotify, new IntentFilter("sendMsg"));
 
-        // Get theme colors
-        getColors();
 
         // We will be getting the value from settings preferences if user wants to use custom tabs.
         SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -302,8 +269,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent updateIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
                     PendingIntent pendingUpdateIntent = PendingIntent.getBroadcast(getBaseContext(), 32, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     CustomTabsIntent intent = new CustomTabsIntent.Builder()
-                            .setToolbarColor(colorPrimary)
-                            .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share link", pendingUpdateIntent)
                             .build();
                     intent.launchUrl(getBaseContext(), Uri.parse("https://j2java.net"));
@@ -320,8 +285,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent shareSourceIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
                     PendingIntent pendingSourceIntent = PendingIntent.getBroadcast(getBaseContext(), 74, shareSourceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
-                            .setToolbarColor(colorPrimary)
-                            .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share source code", pendingSourceIntent)
                             .build();
                     sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor"));
@@ -344,8 +307,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent shareSourceIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
                     PendingIntent pendingSourceIntent = PendingIntent.getBroadcast(getBaseContext(), 74, shareSourceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
-                            .setToolbarColor(colorPrimary)
-                            .setSecondaryToolbarColor(colorPrimaryDark)
                             .addMenuItem("Share Changelog", pendingSourceIntent)
                             .build();
                     sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor/commits/master"));
@@ -458,8 +419,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent shareSourceIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
             PendingIntent pendingProfileIntent = PendingIntent.getBroadcast(getBaseContext(), 74, shareSourceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             CustomTabsIntent profileIntent = new CustomTabsIntent.Builder()
-                    .setToolbarColor(colorPrimary)
-                    .setSecondaryToolbarColor(colorPrimaryDark)
                     .addMenuItem("Share Url", pendingProfileIntent)
                     .build();
             profileIntent.launchUrl(getBaseContext(),Uri.parse("https://github.com/Psychic-74"));
@@ -472,15 +431,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
    }
-
-    public void getColors(){
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        colorPrimary = typedValue.data;
-        TypedValue typedValue1 = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue1, true);
-        colorPrimaryDark = typedValue1.data;
-    }
 
     private BroadcastReceiver onNotify = new BroadcastReceiver() {
         @Override

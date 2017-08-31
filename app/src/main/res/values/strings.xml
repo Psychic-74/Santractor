@@ -16,16 +16,6 @@
         <item>Santractor</item>
     </string-array>
 
-    <!-- Theme Styles -->
-    <string-array name="theme_array">
-        <item>Black</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Teal</item>
-        <item>Blue</item>
-        <item>Pink</item>
-    </string-array>
-
     <!-- Fragments list -->
     <string-array name="fragment_array">
         <item>Welcome Fragment</item>

@@ -8,42 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
-    <!-- New theme blue -->
-    <style name="BlueTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#3F51B5</item>
-        <item name="colorPrimaryDark">#303F9F</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <!-- Red Theme -->
-    <style name="RedTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#F44336</item>
-        <item name="colorPrimaryDark">#D32F2F</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <!-- Pink Theme -->
-    <style name="PinkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#E91E63</item>
-        <item name="colorPrimaryDark">#E91E63</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <!-- Green Theme -->
-    <style name="GreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#4CAF50</item>
-        <item name="colorPrimaryDark">#388E3C</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <!-- Teal Theme -->
-    <style name="TealTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#009688</item>
-        <item name="colorPrimaryDark">#00796B</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
     <!-- Settings Theme -->
     <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="colorPrimary">@color/colorPrimary</item>

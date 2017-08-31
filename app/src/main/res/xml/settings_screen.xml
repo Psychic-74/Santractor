@@ -14,17 +14,6 @@
             android:summary="Current selection is: %s">
         </ListPreference>
 
-        <!-- Preference to add themes -->
-        <ListPreference
-            android:key="selected_theme"
-            android:entries="@array/theme_array"
-            android:entryValues="@array/theme_array"
-            android:defaultValue="Black"
-            android:title="Select app theme"
-            android:enabled="true"
-            android:summary="Current selection is: %s">
-        </ListPreference>
-
 
         <ListPreference
             android:entries="@array/save_location"
