@@ -263,39 +263,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .replace(R.id.fragment_container, fragmentExtract)
                         .commit();
                 break;
-            case R.id.nav_update:
-                Toast.makeText(getBaseContext(), "You have version "+appVersion+" installed.\n"+"Download new app if app version is greater.", Toast.LENGTH_LONG).show();
-                if (shouldShowCustomTabs) {
-                    Intent updateIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
-                    PendingIntent pendingUpdateIntent = PendingIntent.getBroadcast(getBaseContext(), 32, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    CustomTabsIntent intent = new CustomTabsIntent.Builder()
-                            .addMenuItem("Share link", pendingUpdateIntent)
-                            .build();
-                    intent.launchUrl(getBaseContext(), Uri.parse("https://j2java.net"));
-                }
-                else{
-                    Intent updateIntent = new Intent(Intent.ACTION_VIEW);
-                    updateIntent.setData(Uri.parse("https://j2java.net"));
-                    updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(updateIntent);
-                }
-                break;
-            case R.id.nav_source:
-                if (shouldShowCustomTabs) {
-                    Intent shareSourceIntent = new Intent(getBaseContext(), CustomTabsBroadcastReceiver.class);
-                    PendingIntent pendingSourceIntent = PendingIntent.getBroadcast(getBaseContext(), 74, shareSourceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    CustomTabsIntent sourceIntent = new CustomTabsIntent.Builder()
-                            .addMenuItem("Share source code", pendingSourceIntent)
-                            .build();
-                    sourceIntent.launchUrl(getBaseContext(), Uri.parse("https://github.com/Psychic-74/Santractor"));
-                }
-                else{
-                    Intent shareSourceIntent = new Intent(Intent.ACTION_VIEW);
-                    shareSourceIntent.setData(Uri.parse("https://github.com/Psychic-74/Santractor"));
-                    shareSourceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(shareSourceIntent);
-                }
-                break;
             case R.id.nav_about:
                 AboutFragment frag = new AboutFragment();
                 getSupportFragmentManager().beginTransaction()

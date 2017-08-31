@@ -35,7 +35,7 @@
 
     <PreferenceCategory android:title="About">
         <Preference android:title="Developer"
-            android:summary="Nick" />
+            android:summary="Nick aka Psychic" />
 
         <Preference android:title="App Version"
             android:key="pref_version" />

@@ -32,14 +32,6 @@
                     android:title="About" />
             </group>
             <item
-                android:id="@+id/nav_update"
-                android:icon="@drawable/ic_get_app"
-                android:title="Check For Update" />
-            <item
-                android:id="@+id/nav_source"
-                android:icon="@drawable/ic_browser"
-                android:title="Source Code" />
-            <item
                 android:id="@+id/nav_changelog"
                 android:icon="@drawable/ic_change"
                 android:title="Changelogs" />
